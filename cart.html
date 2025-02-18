@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Edis Bio Care</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+#header {
+    background: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#cart {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+#cart h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 50%;
+    position: relative; 
+}
+
+.cart-item:hover {
+    background-color: #f1f1f1;
+}
+
+.cart-item .trash-bin {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #ff0000;
+}
+
+.cart-item .trash-bin:hover {
+    color: #cc0000;
+}
+
+.cart-item:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.cart-item:hover {
+    background-color: #f1f1f1;
+}
+
+.cart-item h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.cart-item p {
+    margin: 5px 0;
+    color: #555;
+}
+
+#total, #subtotal {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: right;
+    color: #333;
+}
+
+#apply-coupon-button {
+    display: block;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+   
+}
+
+#apply-coupon-button:hover {
+    background-color: #218838;
+}
+
+#payment-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+#payment-modal .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+}
+
+#payment-modal .close {
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+    color: #333;
+}
+
+#payment-modal .close:hover {
+    color: #000;
+}#paypal-button {
+    display: block; 
+}
+
+    </style>
+</head>
+<body>
+
+<section id="header">
+    <a href="#"><img src="logo.png" alt="Logo"></a>
+    <div>
+        <ul id="navbar">
+            <li><a href="#" id="close"><i class="fas fa-times"></i></a></li>
+            <li><a class="active" href="index.html" data-lang="home">Home</a></li>
+            <li><a href="shop.html" data-lang="shop">Shop</a></li>
+            <li><a href="blog.html" data-lang="blog">Blog</a></li>
+            <li><a href="about.html" data-lang="about">About</a></li>
+            <li><a href="contact.html" data-lang="contact">Contact</a></li>
+            <li id="lg-bag"><a href="cart.html"><i class="fas fa-shopping-bag"></i></a></li>
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+    </div>
+</section>
+
+<section id="page-header">
+    <p>Edis Bio Care</p>
+</section>
+
+<section id="cart">
+    <h1>Your Cart</h1>
+    <div id="cart-items"></div> 
+    <div id="total">Total: $0.00</div>
+</section>
+
+<section id="cart-add" class="section-p1">
+    <div id="coupon">
+        <h3>Apply Coupon</h3>
+        <div>
+            <input type="text" id="coupon-input" placeholder="Enter Your Coupon">
+            <button id="apply-coupon-button" class="normal">Apply</button>
+        </div>
+    </div>
+    <div id="subtotal">
+        <h3>Cart Totals</h3>
+        <table>
+            <tr>
+                <td>Cart Subtotal</td>
+                <td id="cart-subtotal">$0.00</td>
+            </tr>
+            <tr>
+                <td>Shipping</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong id="final-total">$0.00</strong></td>
+            </tr>
+        </table>
+        <div id="paypal-button"></div>
+    </div>
+</section>
+
+<section id="whatsapp-button">
+    <a href="https://api.whatsapp.com/send?phone=0695248404" target="_blank">
+        <img src="w.png" alt="WhatsApp">
+    </a>
+</section>
+
+<footer class="section-p1">
+    <div class="col">
+        <img src="logo.png" class="logo" alt="">
+        <h4 data-lang="contact">Contact</h4>
+        <p><strong><span data-lang="address">Address</span>: Tirana, Durres, Albania</strong></p>
+        <p><strong><span data-lang="phone">Phone</span>: 0695248404</strong></p>
+        <p><strong><span data-lang="hours">Hours</span>: 08:00-21:00</strong></p>
+        <div class="follow">
+            <h4 data-lang="follow_us">Follow us</h4>
+            <div class="icon">
+                <i class="fab fa-facebook-f" style="color: #3b5998;"></i> 
+                <i class="fab fa-instagram" style="color: #bc2a8d;"></i>
+                <i class="fab fa-twitter" style="color: #1da1f2;"></i> 
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <h4 data-lang="about">About</h4> 
+        <a href="#" data-lang="about_us">About us</a>
+        <a href="#" data-lang="delivery_information">Delivery Information</a>
+        <a href="#" data-lang="privacy_policy">Privacy Policy</a>
+        <a href="#" data-lang="term_condition">Term & Condition</a>
+        <a href="#" data-lang="contact_us">Contact Us</a>
+    </div>
+    <div class="col">
+        <h4 data-lang="my_account">My account</h4> 
+        <a href="#" data-lang="sign_in">Sign In</a>
+        <a href="#" data-lang="view_cart">View Cart</a>
+        <a href="#" data-lang="my_wishlist">My WishList</a>
+        <a href="#" data-lang="track_order">Track my Order</a>
+        <a href="#" data-lang="help">Help</a>
+    </div>
+    <div class="col install">
+        <h4 data-lang="install_app">Install App</h4>
+        <p data-lang="from_app_store">From App Store or Google Play</p>
+        <div class="row">
+            <img src="pay.png" width="40px" height="30px" alt="">
+            <img src="play.png" width="40px" height="30px"  alt="">
+        </div>
+        <p data-lang="secured_payment_gateways">Secured Payment Gateways</p>
+        <img src="pay1.png" alt="" width="40px" height="30px">
+    </div>
+    <div class="copyright">
+        <p data-lang="copyright">@2023, Edis Bio Care - Era Hidaj</p>
+    </div>
+    <div id="language-selector" style="display: none;">
+       <table>
+            <p id="greeting" data-lang="welcome">Welcome</p>
+            <tr>
+                <td><button onclick="changeLanguage('en')" data-lang="english">English</button></td>
+                <td><button onclick="changeLanguage('al')" data-lang="albania">Albania</button></td>
+            </tr>
+        </table>
+    </div>
+</footer>
+
+
+<div id="payment-modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Payment Details</h2>
+        <form id="payment-form">
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=Aa_xFyEIJV1_MbdWaWJlUbuKjoaDsvQeaZ_9V913n9UkqAFavo9b6hWl_f9Wze3gRHjjDUBPoDJZ8OBN"></script>
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalElement = document.getElementById('total');
+    const cartSubtotalElement = document.getElementById('cart-subtotal');
+    const finalTotalElement = document.getElementById('final-total');
+    const applyCouponButton = document.getElementById('apply-coupon-button');
+    const paypalButton = document.getElementById('paypal-button');
+    const clearCartButton = document.getElementById('clear-cart-button'); 
+
+    function initializeCart() {
+        const cartInitialized = localStorage.getItem('cart_initialized');
+
+        if (!cartInitialized) {
+            localStorage.removeItem('cart');
+            localStorage.setItem('cart_initialized', 'true');
+        }
+    }
+
+    initializeCart();
+
+    function updateCartDisplay() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let total = 0;
+        cartItemsContainer.innerHTML = '';
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+            totalElement.innerHTML = 'Total: $0.00';
+            cartSubtotalElement.innerHTML = '$0.00';
+            finalTotalElement.innerHTML = '$0.00';
+            paypalButton.style.display = 'none'; 
+        } else {
+            cart.forEach((product, index) => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'cart-item';
+                productDiv.innerHTML = `
+                    <div>
+                        <h2>${product.name}</h2>
+                        <p>Price: $${product.price}</p>
+                        <p>Quantity: ${product.quantity}</p>
+                        <p>Subtotal: $${product.subtotal}</p>
+                        <i class="fas fa-trash trash-bin" data-index="${index}"></i>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(productDiv);
+                total += product.subtotal;
+            });
+
+            cartSubtotalElement.innerHTML = `$${total.toFixed(2)}`;
+            finalTotalElement.innerHTML = `$${total.toFixed(2)}`;
+            totalElement.innerHTML = `Total: $${total.toFixed(2)}`;
+            paypalButton.style.display = 'block'; 
+        }
+    }
+
+    updateCartDisplay();
+
+    cartItemsContainer.addEventListener('click', function(event) {
+        if (event.target.classList.contains('trash-bin')) {
+            const index = event.target.getAttribute('data-index');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+    });
+
+    applyCouponButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        const couponValue = document.getElementById('coupon-input').value;
+        if (couponValue === 'YOUR_COUPON_CODE') {
+            let subtotal = parseFloat(cartSubtotalElement.textContent.replace('$', ''));
+            const discount = 10;
+            subtotal -= discount;
+            subtotal = Math.max(subtotal, 0);
+            cartSubtotalElement.textContent = '$' + subtotal.toFixed(2);
+            finalTotalElement.textContent = '$' + subtotal.toFixed(2);
+            alert('Coupon applied successfully!');
+        } else {
+            alert('Invalid coupon code. Please try again.');
+        }
+    });
+/*Paypal */
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: finalTotalElement.textContent.replace('$', '')
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name);
+            });
+        }
+    }).render('#paypal-button'); 
+
+    if (clearCartButton) {
+        clearCartButton.addEventListener('click', function() {
+            localStorage.removeItem('cart');
+            updateCartDisplay();
+            alert('Cart cleared!');
+        });
+    }
+});
+
+document.querySelector('#payment-modal .close').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('payment-modal').style.display = 'none';
+});
+
+document.querySelector('#payment-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Payment successful!');
+    document.querySelector('#payment-form').reset();
+    document.getElementById('payment-modal').style.display = 'none';
+});
+</script>
+
+</body>
+</html>
+

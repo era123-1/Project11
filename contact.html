@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Edis Bio Care</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .people-col {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .delete-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #ff0000;
+        }
+        .delete-btn i {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<section id="header">
+    <a href="#"><img src="logo.png" alt=""></a>
+    <div>
+        <ul id="navbar">
+            <li><a href="#" id="close"><i class="fas fa-times"></i></a></li>
+            <li><a class="active" href="index.html" data-lang="home">Home</a></li>
+            <li><a href="shop.html" data-lang="shop">Shop</a></li>
+            <li><a href="blog.html" data-lang="blog">Blog</a></li>
+            <li><a href="about.html" data-lang="about">About</a></li>
+            <li><a href="contact.html" data-lang="contact">Contact</a></li>
+            <li id="lg-bag"><a href="cart.html"><i class="fas fa-shopping-bag"></i></a></li>
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+    </div>
+</section>
+
+<section id="page-header2" class="about-header">
+    <h2>#Contact Us</h2>
+    <p>Edis Bio Care</p>
+</section>
+
+<section id="contact-details" class="section-p1">
+    <div class="details">
+        <span>GET IN TOUCH</span>
+        <h2>Visit one of our agency locations</h2>
+        <h3>OFFICE</h3>
+        <div>
+            <li>
+                <i class="fas fa-map"></i>
+                <p>Tirane, Durres, Albania</p>
+            </li>
+            <li>
+                <i class="far fa-envelope"></i>
+                <p>erahidaj@gmail.com</p>
+            </li> 
+            <li>
+                <i class="fas fa-phone-alt"></i>
+                <p>+355 695248404</p>
+            </li> 
+            <li>
+                <i class="far fa-clock"></i>
+                <p>Monday to Saturday: 9:00am to 9:00pm</p>
+            </li>                
+        </div>
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.724135180698!2d19.829109074963945!3d41.33661169914483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135031c7c14b9225%3A0x106302bf3d759e!2sEDISS%20BIO%20CARE%20TIRANA!5e0!3m2!1sen!2s!4v1707587863554!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"  referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+<section id="form1-details">
+    <form id="contact-form">
+        <span>LEAVE A MESSAGE</span>
+        <h2>We love to hear from you!</h2>
+        <input type="text" placeholder="Your Name" id="name">
+        <input type="text" placeholder="E-mail" id="email">
+        <input type="text" placeholder="Phone" id="phone">
+        <input type="text" placeholder="Subject" id="subject">
+        <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
+        <button class="normal" type="submit" id="submit-button">Submit</button>
+    </form>
+    <div class="people">
+        <!-- Comments will be dynamically added here -->
+    </div>
+    <div id="feedback-message"></div>
+</section>
+
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4 data-lang="signup-newsletter">Sign Up for Newsletter</h4>
+        <p data-lang="email-updates">Get email updates on our latest shop and <span data-lang="special-offers">special offers</span></p>
+    </div>
+    <div id="form-response">
+    <div class="form">
+        <input type="email" id="email" placeholder="Your Email" required>
+        <button class="normal" id="subscribe-btn" data-lang="signup">Sign Up</button>
+    </div>
+    <div id="response-message"></div>
+</div>
+</section>
+
+<section id="whatsapp-button">
+    <a href="https://api.whatsapp.com/send?phone=0695248404" target="_blank">
+        <img src="w.png" alt="WhatsApp">
+    </a>
+</section>
+
+<footer class="section-p1">
+    <div class="col">
+        <img src="logo.png" class="logo" alt="">
+        <h4 data-lang="contact">Contact</h4>
+        <p><strong><span data-lang="address">Address</span>: Tirana, Durres, Albania</strong></p>
+        <p><strong><span data-lang="phone">Phone</span>: 0695248404</strong></p>
+        <p><strong><span data-lang="hours">Hours</span>: 08:00-21:00</strong></p>
+        <div class="follow">
+            <h4 data-lang="follow_us">Follow us</h4>
+            <div class="icon">
+                <i class="fab fa-facebook-f" style="color: #3b5998;"></i> 
+                <i class="fab fa-instagram" style="color: #bc2a8d;"></i>
+                <i class="fab fa-twitter" style="color: #1da1f2;"></i> 
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <h4 data-lang="about">About</h4> 
+        <a href="#" data-lang="about_us">About us</a>
+        <a href="#" data-lang="delivery_information">Delivery Information</a>
+        <a href="#" data-lang="privacy_policy">Privacy Policy</a>
+        <a href="#" data-lang="term_condition">Term & Condition</a>
+        <a href="#" data-lang="contact_us">Contact Us</a>
+    </div>
+    <div class="col">
+        <h4 data-lang="my_account">My account</h4> 
+        <a href="#" data-lang="sign_in">Sign In</a>
+        <a href="#" data-lang="view_cart">View Cart</a>
+        <a href="#" data-lang="my_wishlist">My WishList</a>
+        <a href="#" data-lang="track_order">Track my Order</a>
+        <a href="#" data-lang="help">Help</a>
+    </div>
+    <div class="col install">
+        <h4 data-lang="install_app">Install App</h4>
+        <p data-lang="from_app_store">From App Store or Google Play</p>
+        <div class="row">
+            <img src="pay.png" width="40px" height="30px" alt="">
+            <img src="play.png" width="40px" height="30px"  alt="">
+        </div>
+        <p data-lang="secured_payment_gateways">Secured Payment Gateways</p>
+        <img src="pay1.png" alt="" width="40px" height="30px">
+    </div>
+    <div class="copyright">
+        <p data-lang="copyright">@2023, Edis Bio Care - Era Hidaj</p>
+    </div>
+    <div id="language-selector" style="display: none;">
+       <table>
+            <p id="greeting" data-lang="welcome">Welcome</p>
+            <tr>
+                <td><button onclick="changeLanguage('en')" data-lang="english">English</button></td>
+                <td><button onclick="changeLanguage('al')" data-lang="albania">Albania</button></td>
+            </tr>
+        </table>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  function loadComments() {
+        const comments = JSON.parse(localStorage.getItem('comments')) || [];
+        const peopleDiv = document.querySelector('.people');
+        peopleDiv.innerHTML = ''; 
+        comments.forEach((comment, index) => {
+            const commentDiv = document.createElement('div');
+            commentDiv.classList.add('people-col');
+            commentDiv.innerHTML = `
+                <div>
+                    <p><span>${comment.name}</span><br>Email: ${comment.email}<br>Phone: ${comment.phone}<br>${comment.message}</p>
+                </div>
+                <button class="delete-btn" data-index="${index}"><i class="fas fa-trash"></i></button>
+            `;
+            peopleDiv.appendChild(commentDiv);
+        });
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const index = this.getAttribute('data-index');
+                deleteComment(index);
+            });
+        });
+    }
+
+    function deleteComment(index) {
+        let comments = JSON.parse(localStorage.getItem('comments')) || [];
+        comments.splice(index, 1); 
+        localStorage.setItem('comments', JSON.stringify(comments));
+        loadComments(); 
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        loadComments(); 
+
+        const submitButton = document.getElementById("submit-button");
+        const contactForm = document.getElementById("contact-form");
+
+        submitButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            // Validate form fields
+            if (name === "" || email === "" || phone === "" || subject === "" || message === "") {
+                alert("Please fill out all fields!");
+                return;
+            }
+            const newComment = {
+                name: name,
+                email: email,
+                phone: phone,
+                subject: subject,
+                message: message
+     
+            };
+
+     
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.push(newComment);
+
+            localStorage.setItem('comments', JSON.stringify(comments));
+
+            loadComments();
+            contactForm.reset();
+        });
+    });
+</script>
+</body>
+</html>
